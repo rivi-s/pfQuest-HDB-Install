@@ -1,25 +1,19 @@
-# pfQuest-HDB Install
+# pfQuest-HDB-Install
 
-This repository contains the complete English pfQuest-HDB alpha installation,
-including the ready-made SQLite database. HearthDB client support is required:
-https://github.com/copypasteonly/HearthDB
+This unreleased development layout includes the embedded HearthDB provider and
+ready-made English SQLite database. Existing published alpha ZIPs are unchanged.
+The client still requires HearthDB support: https://github.com/copypasteonly/HearthDB
 
 ## Install or update
 
 1. Close World of Warcraft.
-2. Click **Code**, then **Download ZIP**.
-3. Extract the ZIP.
-4. Remove the existing `pfQuest` and `pfQuest-HearthDB` folders from
-   `Interface/AddOns`.
-5. Copy the new `pfQuest` and `pfQuest-HearthDB` folders into
-   `Interface/AddOns`.
+2. Download and extract this repository's ZIP.
+3. Remove the old `pfQuest` addon folders.
+4. Remove legacy `pfQuest-HearthDB` and `pfQuest-HearthDB-turtle` addon folders.
+5. Copy `pfQuest` from this package into `Interface/AddOns`.
+6. Restart and run `/pfqhdb` to verify the database opened.
 
-Download this repository again whenever an update is announced. Character and
-addon settings are stored in the game's `WTF` folder and are not replaced.
+Settings in `WTF` are preserved. There is no separate provider addon or large
+Lua database loading. This edition requires HearthDB and has no Lua fallback.
 
-This is alpha software. Please report errors, missing pins, incorrect tooltips,
-or unusual delays at https://github.com/rivi-s/pfQuest-HDB/issues.
-
-Do not install `pfQuest-HearthDB` together with
-`pfQuest-HearthDB-turtle`. Turtle WoW players should use the Turtle install
-repository instead: https://github.com/rivi-s/pfQuest-turtle-HDB-Install
+The SQLite database is inside `pfQuest/provider/data/pfquest.sqlite`.
