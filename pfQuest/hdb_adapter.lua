@@ -680,7 +680,7 @@ function pfDatabase:SearchItemIDHDB(id, meta, allowedTypes, callback, ignoreDrop
         nodeMeta.level = source.level or UNKNOWN
         nodeMeta.zone = source.zoneID
         nodeMeta.x, nodeMeta.y = source.x, source.y
-        nodeMeta.respawn = source.respawn and SecondsToTime(source.respawn) or "N/A"
+        nodeMeta.respawn = source.respawn and SecondsToTime(source.respawn) or pfQuest_Loc["N/A"]
         nodeMeta.droprate = source.kind == "V" and nil or source.chance
         nodeMeta.sellcount = source.kind == "V" and source.chance or nil
         nodeMeta.texture = source.kind == "V" and pfQuestConfig.path .. "\\img\\icon_vendor" or nil
@@ -1167,7 +1167,7 @@ AddPin = function(id, qlogid, quest, pin, complete)
     zone = pin.zoneID,
     x = pin.x,
     y = pin.y,
-    respawn = pin.respawn and SecondsToTime(pin.respawn) or "N/A",
+    respawn = pin.respawn and SecondsToTime(pin.respawn) or pfQuest_Loc["N/A"],
     droprate = pin.sourceKind == "V" and nil or pin.chance,
     sellcount = pin.sourceKind == "V" and pin.chance or nil,
     texture = texture,
@@ -1372,10 +1372,10 @@ local function AddAvailablePin(pin, plevel, addon)
     item = itemStart and pin.itemTitle or nil,
     dropsources = itemStart and pin.dropsources or nil,
     dropsources_levels = itemStart and pin.dropsources_levels or nil,
-    spawntype = itemStart and "Item Drop" or (pin.targetKind == "O" and pfQuest_Loc["Object"] or pfQuest_Loc["Unit"]),
+    spawntype = itemStart and pfQuest_Loc["Item Drop"] or (pin.targetKind == "O" and pfQuest_Loc["Object"] or pfQuest_Loc["Unit"]),
     level = itemStart and pfQuest_Loc["N/A"] or (pin.level or UNKNOWN),
     zone = pin.zoneID, x = pin.x, y = pin.y,
-    respawn = itemStart and pfQuest_Loc["N/A"] or (pin.respawn and SecondsToTime(pin.respawn) or "N/A"),
+    respawn = itemStart and pfQuest_Loc["N/A"] or (pin.respawn and SecondsToTime(pin.respawn) or pfQuest_Loc["N/A"]),
   })
 end
 
