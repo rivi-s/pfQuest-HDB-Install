@@ -65,11 +65,15 @@ versioncheck:SetScript("OnEvent", function()
   local availableLabel = pfQuest_config.latestHDB
   local availableVersion = ParseVersion(availableLabel)
   if availableVersion and availableVersion > localVersion and not displayed then
-    DEFAULT_CHAT_FRAME:AddMessage("|cff33ffccpf|cffffffffQuest |cff00aeff[HDB]|r update available")
     DEFAULT_CHAT_FRAME:AddMessage(
-      "Current: |cff66ccff" .. localLabel .. "|r -> Available: |cff66ccff" .. availableLabel .. "|r"
+      "|cff33ffccpf|cffffffffQuest |cff00aeff[HDB]|r " .. pfQuest_Loc["update available"]
     )
-    DEFAULT_CHAT_FRAME:AddMessage("Download: |cff66ccff" .. releaseURL .. "|r")
+    DEFAULT_CHAT_FRAME:AddMessage(string.format(
+      pfQuest_Loc["Current: |cff66ccff%s|r -> Available: |cff66ccff%s|r"],
+      localLabel,
+      availableLabel
+    ))
+    DEFAULT_CHAT_FRAME:AddMessage(string.format(pfQuest_Loc["Download: |cff66ccff%s|r"], releaseURL))
     displayed = true
   end
 end)

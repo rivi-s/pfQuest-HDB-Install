@@ -73,8 +73,13 @@ local function RenderHDBEntityTooltip(button, record)
     GameTooltip:AddDoubleLine(pfQuest_Loc["Alliance"], alliance, 1, 1, 1, 0, 0, 0)
     GameTooltip:AddDoubleLine(pfQuest_Loc["Horde"], horde, 1, 1, 1, 0, 0, 0)
     if record.rank and record.rank ~= "" then
-      local ranks = { ["1"] = "Elite", ["2"] = "Rare Elite", ["3"] = "Boss", ["4"] = "Rare" }
-      GameTooltip:AddDoubleLine("Rank", ranks[tostring(record.rank)] or record.rank, 1, 1, 0.8, 1, 0.7, 0.2)
+      local ranks = {
+        ["1"] = pfQuest_Loc["Elite"],
+        ["2"] = pfQuest_Loc["Rare Elite"],
+        ["3"] = pfQuest_Loc["Boss"],
+        ["4"] = pfQuest_Loc["Rare"],
+      }
+      GameTooltip:AddDoubleLine(pfQuest_Loc["Rank"], ranks[tostring(record.rank)] or record.rank, 1, 1, 0.8, 1, 0.7, 0.2)
     end
   end
   GameTooltip:AddLine("\n" .. pfQuest_Loc["Location"], 1, 1, 0.8)
